@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>BEAT CPR Inc. — Free CPR & AED training for community groups</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#F8F5EF;color:#151311;font-family:'Source Serif 4',Georgia,serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,p,ol,ul,dl,dd,figure,blockquote,fieldset{margin:0;padding:0}
+fieldset{border:0;min-width:0}
+a{color:#CD0608;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:#A30406}
+input,select,textarea,button{font:inherit;color:inherit}
+::selection{background:#CD0608;color:#fff}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:50;background:#F8F5EF;border-bottom:1px solid #DDD6CB">
+  <div style="max-width:1280px;margin:0 auto;padding:14px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="#top" aria-label="BEAT CPR home" style="display:block;flex:none;line-height:0">
+      <img src="assets/beat-cpr-logo.png" alt="BEAT CPR — Basic Emergency Aid Training" style="height:clamp(46px,4.4vw,60px);width:auto;display:block">
+    </a>
+    <sc-if value="{{ isWide }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Main" style="display:flex;align-items:center;gap:32px;font-family:Archivo,sans-serif;font-size:15.5px;font-weight:500">
+        <a href="#training" style="color:#151311;text-decoration:none" style-hover="color:#CD0608">Training</a>
+        <a href="#certification" style="color:#151311;text-decoration:none" style-hover="color:#CD0608">Certification</a>
+        <a href="#how" style="color:#151311;text-decoration:none" style-hover="color:#CD0608">How it works</a>
+        <a href="#contact" style="color:#151311;text-decoration:none" style-hover="color:#CD0608">Contact</a>
+        <a href="#request" style="display:inline-flex;align-items:center;height:46px;padding:0 20px;background:#CD0608;color:#fff;text-decoration:none;border-radius:3px;font-weight:600;white-space:nowrap" style-hover="background:#A30406;color:#fff">Request a Class</a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ isNarrow }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;gap:10px;font-family:Archivo,sans-serif">
+        <sc-if value="{{ showHeaderCta }}" hint-placeholder-val="{{ false }}">
+          <a href="#request" onClick="{{ closeMenu }}" style="display:inline-flex;align-items:center;height:44px;padding:0 18px;background:#CD0608;color:#fff;text-decoration:none;border-radius:3px;font-weight:600;font-size:15px;white-space:nowrap" style-hover="background:#A30406;color:#fff">Request a Class</a>
+        </sc-if>
+        <button type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-controls="mobile-menu" style="height:44px;min-width:76px;padding:0 16px;border:1px solid #151311;background:transparent;border-radius:3px;font-weight:600;font-size:15px;cursor:pointer">{{ menuLabel }}</button>
+      </div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ showMenu }}" hint-placeholder-val="{{ false }}">
+    <div id="mobile-menu" style="position:absolute;top:100%;left:0;right:0;background:#F8F5EF;border-bottom:1px solid #DDD6CB;box-shadow:0 24px 40px -24px rgba(21,19,17,.25)">
+      <nav aria-label="Main" style="max-width:1280px;margin:0 auto;padding:8px clamp(20px,5vw,64px) 28px;display:flex;flex-direction:column;font-family:Archivo,sans-serif">
+        <a href="#training" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid #DDD6CB;color:#151311;text-decoration:none;font-size:22px;font-weight:600;font-stretch:108%">Training</a>
+        <a href="#certification" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid #DDD6CB;color:#151311;text-decoration:none;font-size:22px;font-weight:600;font-stretch:108%">Certification</a>
+        <a href="#how" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid #DDD6CB;color:#151311;text-decoration:none;font-size:22px;font-weight:600;font-stretch:108%">How it works</a>
+        <a href="#contact" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid #DDD6CB;color:#151311;text-decoration:none;font-size:22px;font-weight:600;font-stretch:108%">Contact</a>
+        <a href="#request" onClick="{{ closeMenu }}" style="margin-top:24px;display:flex;align-items:center;justify-content:center;height:54px;background:#CD0608;color:#fff;text-decoration:none;border-radius:3px;font-weight:600;font-size:17px">Request a Class</a>
+        <a href="mailto:beatcprinc@gmail.com" style="margin-top:16px;text-align:center;color:#5A544D;font-size:15px">beatcprinc@gmail.com</a>
+      </nav>
+    </div>
+  </sc-if>
+</header>
+
+<main id="top">
+  <section data-screen-label="Hero" style="padding-top:clamp(48px,8vw,112px)">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+      <p style="font-family:Archivo,sans-serif;font-size:clamp(13px,1.2vw,15px);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#CD0608">Free CPR &amp; AED training</p>
+      <h1 style="margin-top:clamp(16px,2vw,24px);font-family:Archivo,sans-serif;font-weight:700;font-stretch:112%;font-size:clamp(38px,6.2vw,84px);line-height:1.02;letter-spacing:-.025em;max-width:14ch;text-wrap:balance">Life-saving skills, brought to your community<span style="color:#CD0608">.</span></h1>
+      <div style="margin-top:clamp(32px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(36px,6vw,96px);align-items:flex-end;justify-content:space-between">
+        <div style="flex:1 1 340px;max-width:560px">
+          <p style="font-size:clamp(19px,1.7vw,22px);line-height:1.5;color:#3A3530;text-wrap:pretty">BEAT CPR provides free CPR and AED training for community groups throughout New York City and the tri-state area. We come to you.</p>
+          <div style="margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;font-family:Archivo,sans-serif">
+            <a href="#request" style="display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 28px;background:#CD0608;color:#fff;text-decoration:none;border-radius:3px;font-weight:600;font-size:17px;white-space:nowrap" style-hover="background:#A30406;color:#fff">Request a Class</a>
+            <a href="#how" style="color:#151311;font-weight:500;font-size:16px;text-decoration:underline;text-decoration-color:#B8AFA2;text-underline-offset:5px" style-hover="color:#CD0608;text-decoration-color:#CD0608">How hosting works</a>
+          </div>
+        </div>
+        <dl style="flex:1 1 300px;max-width:440px;font-family:Archivo,sans-serif">
+          <div style="display:flex;gap:16px;padding:14px 0;border-top:1px solid #151311">
+            <dt style="flex:0 0 96px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B645C;padding-top:3px">Cost</dt>
+            <dd style="font-size:17px;font-weight:500">Free for community groups</dd>
+          </div>
+          <div style="display:flex;gap:16px;padding:14px 0;border-top:1px solid #DDD6CB">
+            <dt style="flex:0 0 96px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B645C;padding-top:3px">Where</dt>
+            <dd style="font-size:17px;font-weight:500">At your group’s location</dd>
+          </div>
+          <div style="display:flex;gap:16px;padding:14px 0;border-top:1px solid #DDD6CB">
+            <dt style="flex:0 0 96px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B645C;padding-top:3px">Area</dt>
+            <dd style="font-size:17px;font-weight:500">New York City &amp; the tri-state area</dd>
+          </div>
+          <div style="display:flex;gap:16px;padding:14px 0;border-top:1px solid #DDD6CB;border-bottom:1px solid #DDD6CB">
+            <dt style="flex:0 0 96px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B645C;padding-top:3px">Length</dt>
+            <dd style="font-size:17px;font-weight:500">About 1–2 hours</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <div aria-hidden="true" style="margin-top:clamp(56px,8vw,104px);display:flex;align-items:center">
+      <div style="flex:1;height:2px;background:#CD0608"></div>
+      <svg width="96" height="44" viewBox="0 0 96 44" style="flex:none;display:block"><path d="M0 22 H22 L30 22 L37 3 L48 41 L56 12 L62 22 H96" fill="none" stroke="#CD0608" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+      <div style="flex:0 0 clamp(20px,9vw,180px);height:2px;background:#CD0608"></div>
+    </div>
+  </section>
+
+  <section id="training" data-screen-label="Training topics" style="padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(28px,6vw,96px)">
+      <div style="flex:1 1 260px;max-width:420px">
+        <h2 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-.018em;text-wrap:balance">What we teach</h2>
+        <p style="margin-top:20px;font-size:18px;line-height:1.55;color:#5A544D;text-wrap:pretty">Classes are hands-on and shaped around your group. Choose the topics that fit, or ask us to cover all five.</p>
+      </div>
+      <ol style="flex:999 1 560px;list-style:none;border-bottom:1px solid #DDD6CB">
+        <li style="display:flex;gap:clamp(14px,2vw,28px);padding:clamp(20px,2.4vw,28px) 0;border-top:1px solid #151311">
+          <span aria-hidden="true" style="flex:none;width:10px;height:10px;border-radius:50%;background:#CD0608;margin-top:clamp(9px,0.9vw,12px)"></span>
+          <div style="flex:1;display:flex;flex-wrap:wrap;gap:8px 32px">
+            <h3 style="flex:1 1 200px;font-family:Archivo,sans-serif;font-weight:600;font-stretch:106%;font-size:clamp(22px,2.2vw,28px);line-height:1.2">Adult CPR</h3>
+            <p style="flex:1.5 1 280px;font-size:17px;line-height:1.55;color:#5A544D;text-wrap:pretty">Recognizing an emergency, calling for help, and giving steady chest compressions to an adult.</p>
+          </div>
+        </li>
+        <li style="display:flex;gap:clamp(14px,2vw,28px);padding:clamp(20px,2.4vw,28px) 0;border-top:1px solid #DDD6CB">
+          <span aria-hidden="true" style="flex:none;width:10px;height:10px;border-radius:50%;background:#CD0608;margin-top:clamp(9px,0.9vw,12px)"></span>
+          <div style="flex:1;display:flex;flex-wrap:wrap;gap:8px 32px">
+            <h3 style="flex:1 1 200px;font-family:Archivo,sans-serif;font-weight:600;font-stretch:106%;font-size:clamp(22px,2.2vw,28px);line-height:1.2">Child CPR</h3>
+            <p style="flex:1.5 1 280px;font-size:17px;line-height:1.55;color:#5A544D;text-wrap:pretty">How CPR changes for a child, from hand position to how hard and how deep to press.</p>
+          </div>
+        </li>
+        <li style="display:flex;gap:clamp(14px,2vw,28px);padding:clamp(20px,2.4vw,28px) 0;border-top:1px solid #DDD6CB">
+          <span aria-hidden="true" style="flex:none;width:10px;height:10px;border-radius:50%;background:#CD0608;margin-top:clamp(9px,0.9vw,12px)"></span>
+          <div style="flex:1;display:flex;flex-wrap:wrap;gap:8px 32px">
+            <h3 style="flex:1 1 200px;font-family:Archivo,sans-serif;font-weight:600;font-stretch:106%;font-size:clamp(22px,2.2vw,28px);line-height:1.2">Infant CPR</h3>
+            <p style="flex:1.5 1 280px;font-size:17px;line-height:1.55;color:#5A544D;text-wrap:pretty">The gentler, specific technique used for babies.</p>
+          </div>
+        </li>
+        <li style="display:flex;gap:clamp(14px,2vw,28px);padding:clamp(20px,2.4vw,28px) 0;border-top:1px solid #DDD6CB">
+          <span aria-hidden="true" style="flex:none;width:10px;height:10px;border-radius:50%;background:#CD0608;margin-top:clamp(9px,0.9vw,12px)"></span>
+          <div style="flex:1;display:flex;flex-wrap:wrap;gap:8px 32px">
+            <h3 style="flex:1 1 200px;font-family:Archivo,sans-serif;font-weight:600;font-stretch:106%;font-size:clamp(22px,2.2vw,28px);line-height:1.2">AED use</h3>
+            <p style="flex:1.5 1 280px;font-size:17px;line-height:1.55;color:#5A544D;text-wrap:pretty">How to use an automated external defibrillator by following its prompts, alongside CPR.</p>
+          </div>
+        </li>
+        <li style="display:flex;gap:clamp(14px,2vw,28px);padding:clamp(20px,2.4vw,28px) 0;border-top:1px solid #DDD6CB">
+          <span aria-hidden="true" style="flex:none;width:10px;height:10px;border-radius:50%;background:#CD0608;margin-top:clamp(9px,0.9vw,12px)"></span>
+          <div style="flex:1;display:flex;flex-wrap:wrap;gap:8px 32px">
+            <h3 style="flex:1 1 200px;font-family:Archivo,sans-serif;font-weight:600;font-stretch:106%;font-size:clamp(22px,2.2vw,28px);line-height:1.2">Choking response</h3>
+            <p style="flex:1.5 1 280px;font-size:17px;line-height:1.55;color:#5A544D;text-wrap:pretty">What to do when an adult, child, or infant is choking.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="certification" data-screen-label="Free training & certification" style="background:#EFE9DF;padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+      <div style="display:flex;flex-wrap:wrap;gap:20px clamp(28px,6vw,96px);align-items:flex-end;justify-content:space-between">
+        <h2 style="flex:1 1 320px;max-width:16ch;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-.018em;text-wrap:balance">Free to host. Certification if you need it.</h2>
+        <p style="flex:1 1 320px;max-width:520px;font-size:18px;line-height:1.55;color:#5A544D;text-wrap:pretty">Standard training costs your group nothing. If participants need a certification card, that can be arranged separately for an additional administrative fee.</p>
+      </div>
+      <div style="margin-top:clamp(36px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(16px,2vw,24px);align-items:stretch">
+        <div style="flex:1 1 300px;background:#FFFDF9;border:1px solid #DDD6CB;border-radius:4px;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column">
+          <h3 style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#151311">Standard training</h3>
+          <p style="margin-top:12px;font-family:Archivo,sans-serif;font-weight:800;font-stretch:115%;font-size:clamp(68px,8vw,112px);line-height:.9;letter-spacing:-.03em;color:#CD0608">Free</p>
+          <ul style="margin-top:clamp(24px,3vw,36px);list-style:none;font-family:Archivo,sans-serif;font-size:18px;font-weight:500">
+            <li style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-top:1px solid #DDD6CB"><span aria-hidden="true" style="flex:none;width:14px;height:2px;background:#CD0608;transform:translateY(-5px)"></span>Free for community groups</li>
+            <li style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-top:1px solid #DDD6CB"><span aria-hidden="true" style="flex:none;width:14px;height:2px;background:#CD0608;transform:translateY(-5px)"></span>No obligation</li>
+            <li style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-top:1px solid #DDD6CB;border-bottom:1px solid #DDD6CB"><span aria-hidden="true" style="flex:none;width:14px;height:2px;background:#CD0608;transform:translateY(-5px)"></span>Training at your group’s location</li>
+          </ul>
+          <p style="margin-top:auto;padding-top:24px;font-size:16px;line-height:1.5;color:#5A544D">Covers any of the five topics: adult, child, and infant CPR, AED use, and choking response.</p>
+        </div>
+        <div style="flex:1.35 1 360px;background:#151311;color:#F8F5EF;border-radius:4px;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column">
+          <h3 style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#F37365">Optional certification</h3>
+          <p style="margin-top:14px;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.4vw,44px);line-height:1.05;letter-spacing:-.015em;text-wrap:balance"><sc-if value="{{ aha }}" hint-placeholder-val="{{ true }}">AHA </sc-if>certification available</p>
+          <p style="margin-top:16px;font-size:18px;line-height:1.55;color:#D6CFC4;max-width:52ch;text-wrap:pretty">For participants who need a certification card, BEAT CPR offers <sc-if value="{{ aha }}" hint-placeholder-val="{{ true }}">American Heart Association </sc-if>Heartsaver and BLS certification.</p>
+          <dl style="margin-top:clamp(24px,3vw,32px)">
+            <div style="display:flex;flex-wrap:wrap;gap:4px 24px;padding:16px 0;border-top:1px solid rgba(248,245,239,.2)">
+              <dt style="flex:0 0 140px;font-family:Archivo,sans-serif;font-weight:600;font-size:19px">Heartsaver</dt>
+              <dd style="flex:1 1 240px;font-size:16px;line-height:1.5;color:#D6CFC4">Certification for people outside of healthcare, such as staff, teachers, and community members.</dd>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px 24px;padding:16px 0;border-top:1px solid rgba(248,245,239,.2);border-bottom:1px solid rgba(248,245,239,.2)">
+              <dt style="flex:0 0 140px;font-family:Archivo,sans-serif;font-weight:600;font-size:19px">BLS</dt>
+              <dd style="flex:1 1 240px;font-size:16px;line-height:1.5;color:#D6CFC4">Basic Life Support certification, often needed for healthcare and clinical roles.</dd>
+            </div>
+          </dl>
+          <p style="margin-top:24px;font-family:Archivo,sans-serif;font-size:18px;font-weight:600">An additional administrative fee applies.</p>
+          <p style="margin-top:8px;font-size:16px;line-height:1.5;color:#D6CFC4;text-wrap:pretty">Certification is optional, arranged in advance, and not part of every class. Mention it in your inquiry and we’ll explain the details.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" data-screen-label="How it works" style="padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+      <div style="display:flex;flex-wrap:wrap;gap:20px clamp(28px,6vw,96px);align-items:flex-end;justify-content:space-between">
+        <h2 style="flex:1 1 320px;max-width:14ch;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-.018em;text-wrap:balance">How hosting a class works</h2>
+        <p style="flex:1 1 320px;max-width:520px;font-size:18px;line-height:1.55;color:#5A544D;text-wrap:pretty">There’s no booking system and nothing to commit to up front. You tell us about your group, and we work out the details together.</p>
+      </div>
+      <ol style="margin-top:clamp(40px,5vw,64px);list-style:none;display:flex;flex-wrap:wrap;gap:0 clamp(24px,3vw,48px)">
+        <li style="flex:1 1 240px;border-top:2px solid #151311;padding:24px 0 36px">
+          <span style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:112%;font-size:clamp(40px,4vw,56px);line-height:1;color:#CD0608">1</span>
+          <h3 style="margin-top:20px;font-family:Archivo,sans-serif;font-weight:600;font-stretch:106%;font-size:24px;line-height:1.2">Send an inquiry</h3>
+          <p style="margin-top:10px;font-size:17px;line-height:1.55;color:#5A544D;max-width:34ch;text-wrap:pretty">Tell us about your group, roughly how many people, and what you’d like to learn.</p>
+        </li>
+        <li style="flex:1 1 240px;border-top:2px solid #151311;padding:24px 0 36px">
+          <span style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:112%;font-size:clamp(40px,4vw,56px);line-height:1;color:#CD0608">2</span>
+          <h3 style="margin-top:20px;font-family:Archivo,sans-serif;font-weight:600;font-stretch:106%;font-size:24px;line-height:1.2">We follow up</h3>
+          <p style="margin-top:10px;font-size:17px;line-height:1.55;color:#5A544D;max-width:34ch;text-wrap:pretty">BEAT CPR gets in touch to talk through your group’s needs, timing, and arrangements.</p>
+        </li>
+        <li style="flex:1 1 240px;border-top:2px solid #151311;padding:24px 0 36px">
+          <span style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:112%;font-size:clamp(40px,4vw,56px);line-height:1;color:#CD0608">3</span>
+          <h3 style="margin-top:20px;font-family:Archivo,sans-serif;font-weight:600;font-stretch:106%;font-size:24px;line-height:1.2">We come to you</h3>
+          <p style="margin-top:10px;font-size:17px;line-height:1.55;color:#5A544D;max-width:34ch;text-wrap:pretty">An instructor leads the training at your location, with your group, in your space.</p>
+        </li>
+      </ol>
+      <div style="margin-top:8px;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 24px;padding:22px clamp(20px,3vw,32px);border:1px solid #DDD6CB;border-radius:4px;background:#FFFDF9">
+        <p style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(22px,2.4vw,28px);white-space:nowrap">1–2 hours</p>
+        <p style="flex:1 1 280px;font-size:17px;line-height:1.5;color:#5A544D;text-wrap:pretty">Classes typically last around one to two hours, depending on group size and the material covered.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Why CPR matters" style="background:#151311;color:#F8F5EF;padding:clamp(80px,11vw,160px) 0">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:40px clamp(40px,7vw,112px);align-items:flex-end">
+      <div style="flex:999 1 560px">
+        <h2 style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#F37365">Why CPR matters</h2>
+        <p style="margin-top:24px;font-weight:400;font-size:clamp(28px,4vw,54px);line-height:1.16;letter-spacing:-.01em;max-width:22ch;text-wrap:balance">An emergency can happen anywhere. Knowing what to do can make a difference before professional help arrives.</p>
+      </div>
+      <p style="flex:1 1 260px;max-width:400px;font-size:18px;line-height:1.6;color:#CFC8BD;text-wrap:pretty">Our classes are for everyday people: parents, teachers, coworkers, congregants, and neighbors. The aim is simple. More people in more communities who feel ready to step in and help.</p>
+    </div>
+  </section>
+
+  <section id="request" data-screen-label="Class inquiry" style="padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(36px,6vw,96px);align-items:flex-start">
+      <div style="flex:1 1 280px;max-width:400px">
+        <h2 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-.018em">Request a class</h2>
+        <p style="margin-top:20px;font-size:18px;line-height:1.55;color:#3A3530;text-wrap:pretty">Tell us a little about your group. This is an inquiry, not a booking: BEAT CPR will follow up to discuss your group’s needs and arrangements.</p>
+        <p style="margin-top:20px;font-size:16px;line-height:1.55;color:#5A544D">Fields marked <span style="color:#CD0608">*</span> are required. Everything else is optional.</p>
+        <div style="margin-top:32px;padding-top:20px;border-top:1px solid #DDD6CB">
+          <p style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600">Prefer to write directly?</p>
+          <a href="mailto:beatcprinc@gmail.com" style="display:inline-block;margin-top:6px;font-family:Archivo,sans-serif;font-size:18px;font-weight:500">beatcprinc@gmail.com</a>
+        </div>
+      </div>
+
+      <div style="flex:999 1 560px;min-width:0;background:#FFFDF9;border:1px solid #DDD6CB;border-radius:4px;padding:clamp(22px,4vw,48px)">
+        <sc-if value="{{ showSuccess }}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="padding:clamp(8px,2vw,24px) 0">
+            <div aria-hidden="true" style="width:56px;height:56px;border-radius:50%;background:#CD0608;display:flex;align-items:center;justify-content:center">
+              <svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13.5 L11 19 L21 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <h3 style="margin-top:24px;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(26px,3vw,36px);line-height:1.1">Thank you, {{ firstName }}.</h3>
+            <p style="margin-top:14px;font-size:18px;line-height:1.55;color:#3A3530;max-width:52ch;text-wrap:pretty">Your inquiry for {{ orgName }} has been recorded in this prototype. On the live site, BEAT CPR would follow up from here to discuss your group’s needs and arrangements.</p>
+            <div style="margin-top:28px;padding:18px 20px;background:#F3EEE6;border-radius:4px;font-family:Archivo,sans-serif;font-size:15px;line-height:1.5;color:#3A3530">
+              <strong style="font-weight:600">Prototype note:</strong> email delivery has not been set up yet, so this inquiry was not sent anywhere. Nothing has been submitted to BEAT CPR.
+            </div>
+            <button type="button" onClick="{{ reset }}" style="margin-top:28px;height:50px;padding:0 22px;border:1px solid #151311;background:transparent;border-radius:3px;font-family:Archivo,sans-serif;font-weight:600;font-size:16px;cursor:pointer" style-hover="background:#151311;color:#F8F5EF">Start another inquiry</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onSubmit }}" noValidate="{{ true }}" style="font-family:Archivo,sans-serif">
+            <sc-if value="{{ hasErrors }}" hint-placeholder-val="{{ false }}">
+              <div role="alert" style="margin-bottom:28px;padding:14px 18px;border:1px solid #CD0608;border-radius:4px;background:#FCEDEC;color:#8E0405;font-size:15.5px;line-height:1.45">Please check the {{ errorCount }} highlighted below.</div>
+            </sc-if>
+
+            <fieldset>
+              <legend style="padding:0;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B645C">About you</legend>
+              <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:20px">
+                <div style="flex:1 1 100%;min-width:0">
+                  <label for="f-name" style="display:block;font-size:15px;font-weight:600">Your name <span style="color:#CD0608">*</span></label>
+                  <input id="f-name" type="text" autoComplete="name" value="{{ f.name }}" onChange="{{ h.name }}" aria-invalid="{{ inv.name }}" style="margin-top:8px;width:100%;height:52px;padding:0 14px;font-size:17px;background:#fff;border:1px solid {{ bc.name }};border-radius:4px;outline:none" style-focus="border-color:#151311;box-shadow:0 0 0 3px rgba(21,19,17,.12)">
+                  <p style="margin-top:6px;font-size:14px;color:#B00507;min-height:0">{{ err.name }}</p>
+                </div>
+                <div style="flex:1 1 240px;min-width:0">
+                  <label for="f-email" style="display:block;font-size:15px;font-weight:600">Email <span style="color:#CD0608">*</span></label>
+                  <input id="f-email" type="email" autoComplete="email" inputMode="email" value="{{ f.email }}" onChange="{{ h.email }}" aria-invalid="{{ inv.email }}" style="margin-top:8px;width:100%;height:52px;padding:0 14px;font-size:17px;background:#fff;border:1px solid {{ bc.email }};border-radius:4px;outline:none" style-focus="border-color:#151311;box-shadow:0 0 0 3px rgba(21,19,17,.12)">
+                  <p style="margin-top:6px;font-size:14px;color:#B00507">{{ err.email }}</p>
+                </div>
+                <div style="flex:1 1 200px;min-width:0">
+                  <label for="f-phone" style="display:block;font-size:15px;font-weight:600">Phone <span style="font-weight:400;color:#6B645C">(optional)</span></label>
+                  <input id="f-phone" type="tel" autoComplete="tel" value="{{ f.phone }}" onChange="{{ h.phone }}" style="margin-top:8px;width:100%;height:52px;padding:0 14px;font-size:17px;background:#fff;border:1px solid #CFC7BB;border-radius:4px;outline:none" style-focus="border-color:#151311;box-shadow:0 0 0 3px rgba(21,19,17,.12)">
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset style="margin-top:32px;padding-top:28px;border-top:1px solid #E6E0D6">
+              <legend style="float:left;width:100%;padding:0;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B645C">About your group</legend>
+              <div style="clear:both;padding-top:16px;display:flex;flex-wrap:wrap;gap:20px">
+                <div style="flex:1 1 100%;min-width:0">
+                  <label for="f-org" style="display:block;font-size:15px;font-weight:600">Organization or group name <span style="color:#CD0608">*</span></label>
+                  <input id="f-org" type="text" autoComplete="organization" value="{{ f.org }}" onChange="{{ h.org }}" aria-invalid="{{ inv.org }}" style="margin-top:8px;width:100%;height:52px;padding:0 14px;font-size:17px;background:#fff;border:1px solid {{ bc.org }};border-radius:4px;outline:none" style-focus="border-color:#151311;box-shadow:0 0 0 3px rgba(21,19,17,.12)">
+                  <p style="margin-top:6px;font-size:14px;color:#B00507">{{ err.org }}</p>
+                </div>
+                <div style="flex:1.4 1 240px;min-width:0">
+                  <label for="f-type" style="display:block;font-size:15px;font-weight:600">Type of organization <span style="color:#CD0608">*</span></label>
+                  <select id="f-type" value="{{ f.type }}" onChange="{{ h.type }}" aria-invalid="{{ inv.type }}" style="margin-top:8px;width:100%;height:52px;padding:0 40px 0 14px;font-size:17px;background:#fff url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23151311' stroke-width='1.6'/%3E%3C/svg%3E&quot;) no-repeat right 16px center;border:1px solid {{ bc.type }};border-radius:4px;outline:none;appearance:none;-webkit-appearance:none;color:{{ typeColor }}" style-focus="border-color:#151311;box-shadow:0 0 0 3px rgba(21,19,17,.12)">
+                    <option value="">Choose one</option>
+                    <option value="School">School</option>
+                    <option value="Synagogue">Synagogue</option>
+                    <option value="Library">Library</option>
+                    <option value="Community organization">Community organization</option>
+                    <option value="Community gathering">Community gathering</option>
+                    <option value="Private group">Private group</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <p style="margin-top:6px;font-size:14px;color:#B00507">{{ err.type }}</p>
+                </div>
+                <div style="flex:1 1 200px;min-width:0">
+                  <label for="f-count" style="display:block;font-size:15px;font-weight:600">Approx. participants <span style="color:#CD0608">*</span></label>
+                  <input id="f-count" type="text" inputMode="numeric" placeholder="e.g. 25" value="{{ f.count }}" onChange="{{ h.count }}" aria-invalid="{{ inv.count }}" style="margin-top:8px;width:100%;height:52px;padding:0 14px;font-size:17px;background:#fff;border:1px solid {{ bc.count }};border-radius:4px;outline:none" style-focus="border-color:#151311;box-shadow:0 0 0 3px rgba(21,19,17,.12)">
+                  <p style="margin-top:6px;font-size:14px;color:#B00507">{{ err.count }}</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset style="margin-top:32px;padding-top:28px;border-top:1px solid #E6E0D6">
+              <legend style="float:left;width:100%;padding:0;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B645C">Training interests <span style="color:#CD0608">*</span></legend>
+              <p style="clear:both;padding-top:10px;font-family:'Source Serif 4',serif;font-size:16px;color:#5A544D">Choose any that apply.</p>
+              <div style="margin-top:14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:10px">
+                <sc-for list="{{ interestItems }}" as="item" hint-placeholder-count="7">
+                  <label style="display:flex;align-items:center;gap:12px;min-height:52px;padding:10px 14px;background:{{ item.bg }};border:1px solid {{ item.border }};border-radius:4px;font-size:16px;font-weight:500;cursor:pointer;line-height:1.3">
+                    <input type="checkbox" checked="{{ item.checked }}" onChange="{{ item.toggle }}" style="flex:none;width:20px;height:20px;margin:0;accent-color:#CD0608;cursor:pointer">
+                    <span>{{ item.label }}</span>
+                  </label>
+                </sc-for>
+              </div>
+              <p style="margin-top:8px;font-size:14px;color:#B00507">{{ err.interests }}</p>
+            </fieldset>
+
+            <fieldset style="margin-top:24px;padding-top:28px;border-top:1px solid #E6E0D6">
+              <legend style="float:left;width:100%;padding:0;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B645C">Anything else</legend>
+              <div style="clear:both;padding-top:16px;display:flex;flex-direction:column;gap:20px">
+                <div>
+                  <label for="f-timing" style="display:block;font-size:15px;font-weight:600">Preferred timing <span style="font-weight:400;color:#6B645C">(optional)</span></label>
+                  <input id="f-timing" type="text" placeholder="e.g. a weekday evening in the spring" value="{{ f.timing }}" onChange="{{ h.timing }}" style="margin-top:8px;width:100%;height:52px;padding:0 14px;font-size:17px;background:#fff;border:1px solid #CFC7BB;border-radius:4px;outline:none" style-focus="border-color:#151311;box-shadow:0 0 0 3px rgba(21,19,17,.12)">
+                </div>
+                <div>
+                  <label for="f-notes" style="display:block;font-size:15px;font-weight:600">Notes <span style="font-weight:400;color:#6B645C">(optional)</span></label>
+                  <textarea id="f-notes" rows="4" placeholder="Your space, your group, questions about certification…" value="{{ f.notes }}" onChange="{{ h.notes }}" style="margin-top:8px;width:100%;padding:12px 14px;font-size:17px;line-height:1.5;background:#fff;border:1px solid #CFC7BB;border-radius:4px;outline:none;resize:vertical;display:block" style-focus="border-color:#151311;box-shadow:0 0 0 3px rgba(21,19,17,.12)"></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <sc-if value="{{ showFail }}" hint-placeholder-val="{{ false }}">
+              <div role="alert" style="margin-top:28px;padding:16px 18px;border:1px solid #CD0608;border-radius:4px;background:#FCEDEC;color:#5E0203;font-size:15.5px;line-height:1.5">
+                <strong style="font-weight:600;color:#8E0405">Your inquiry couldn’t be sent.</strong> Please try again in a moment, or email <a href="mailto:beatcprinc@gmail.com" style="color:#8E0405">beatcprinc@gmail.com</a> directly.
+              </div>
+            </sc-if>
+
+            <div style="margin-top:32px;padding-top:28px;border-top:1px solid #E6E0D6;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px">
+              <button type="submit" disabled="{{ submitting }}" style="height:56px;padding:0 32px;background:{{ submitBg }};color:#fff;border:0;border-radius:3px;font-weight:600;font-size:17px;cursor:pointer;white-space:nowrap" style-hover="background:#A30406">{{ submitLabel }}</button>
+              <p style="flex:1 1 220px;font-family:'Source Serif 4',serif;font-size:15px;line-height:1.5;color:#5A544D;text-wrap:pretty">Sending this form doesn’t reserve a date. We’ll follow up to talk it through.</p>
+            </div>
+            <sc-if value="{{ showNotice }}" hint-placeholder-val="{{ true }}">
+              <p style="margin-top:20px;padding:12px 14px;background:#F3EEE6;border-radius:4px;font-size:13.5px;line-height:1.45;color:#5A544D">Prototype: email delivery isn’t configured yet. Submissions are not sent anywhere.</p>
+            </sc-if>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-screen-label="Contact" style="border-top:1px solid #DDD6CB;padding:clamp(56px,8vw,112px) 0">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:24px clamp(32px,6vw,96px);align-items:flex-end;justify-content:space-between">
+      <div style="flex:1 1 300px;max-width:440px">
+        <h2 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(26px,2.8vw,36px);line-height:1.1;letter-spacing:-.015em">Questions first?</h2>
+        <p style="margin-top:14px;font-size:18px;line-height:1.55;color:#5A544D;text-wrap:pretty">Write to us about certification, arranging training, or anything else you’d like to know before hosting a class.</p>
+      </div>
+      <a href="mailto:beatcprinc@gmail.com" style="font-family:Archivo,sans-serif;font-weight:700;font-size:clamp(22px,5.2vw,64px);letter-spacing:-.02em;line-height:1.1;color:#CD0608;text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.14em;overflow-wrap:anywhere" style-hover="color:#A30406">beatcprinc@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer style="background:#151311;color:#CFC8BD;font-family:Archivo,sans-serif">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,5vw,64px) 28px">
+    <div style="display:flex;flex-wrap:wrap;gap:40px clamp(32px,6vw,96px);justify-content:space-between;align-items:flex-start">
+      <img src="assets/beat-cpr-logo-reverse.png" alt="BEAT CPR — Basic Emergency Aid Training" style="height:clamp(72px,7vw,92px);width:auto;display:block">
+      <div style="display:flex;flex-wrap:wrap;gap:32px clamp(40px,6vw,88px)">
+        <nav aria-label="Footer" style="display:flex;flex-direction:column;gap:12px;font-size:15.5px">
+          <a href="#training" style="color:#F8F5EF;text-decoration:none" style-hover="color:#F37365">Training</a>
+          <a href="#certification" style="color:#F8F5EF;text-decoration:none" style-hover="color:#F37365">Certification</a>
+          <a href="#how" style="color:#F8F5EF;text-decoration:none" style-hover="color:#F37365">How it works</a>
+          <a href="#request" style="color:#F8F5EF;text-decoration:none" style-hover="color:#F37365">Request a Class</a>
+        </nav>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:15.5px;max-width:260px">
+          <a href="mailto:beatcprinc@gmail.com" style="color:#F8F5EF" style-hover="color:#F37365">beatcprinc@gmail.com</a>
+          <p style="line-height:1.5">Free CPR and AED training for community groups in New York City and the tri-state area.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:clamp(40px,5vw,56px);padding-top:20px;border-top:1px solid rgba(248,245,239,.16);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:13.5px;color:#9C958B">
+      <p>© 2026 BEAT CPR Inc.</p>
+      <p>Basic Emergency Aid Training</p>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;certWording&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AHA certification&quot;,&quot;Certification (no AHA mention)&quot;],&quot;default&quot;:&quot;AHA certification&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;submitOutcome&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;success&quot;,&quot;failure&quot;],&quot;default&quot;:&quot;success&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Form prototype&quot;},&quot;showPrototypeNotice&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Form prototype&quot;}}">
+class Component extends DCLogic {
+  state = {
+    w: typeof window !== 'undefined' ? window.innerWidth : 1280,
+    menu: false,
+    f: { name: '', email: '', phone: '', org: '', type: '', count: '', timing: '', notes: '' },
+    interests: {},
+    tried: false,
+    status: 'idle'
+  };
+  topics = ['Adult CPR', 'Child CPR', 'Infant CPR', 'AED use', 'Choking response', 'Certification (Heartsaver or BLS)', 'Not sure yet'];
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth, menu: window.innerWidth >= 1024 ? false : this.state.menu });
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); clearTimeout(this.t); }
+  validate() {
+    const f = this.state.f, e = {};
+    if (!f.name.trim()) e.name = 'Please enter your name.';
+    if (!f.email.trim()) e.email = 'Please enter your email address.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) e.email = 'That email address doesn’t look complete.';
+    if (!f.org.trim()) e.org = 'Please enter your organization or group name.';
+    if (!f.type) e.type = 'Please choose the type of organization.';
+    const n = f.count.trim().replace(/[~+,]/g, '');
+    if (!n) e.count = 'Please give an approximate number.';
+    else if (!/^\d+(\s*[-–]\s*\d+)?$/.test(n) || parseInt(n, 10) < 1) e.count = 'Enter a number, like 25.';
+    if (!Object.values(this.state.interests).some(Boolean)) e.interests = 'Choose at least one topic, or “Not sure yet.”';
+    return e;
+  }
+  renderVals() {
+    const { w, menu, f, interests, tried, status } = this.state;
+    const e = tried ? this.validate() : {};
+    const keys = ['name', 'email', 'org', 'type', 'count'];
+    const h = {}, bc = {}, inv = {}, err = {};
+    Object.keys(f).forEach(k => { h[k] = ev => { const v = ev.target.value; this.setState(s => ({ f: { ...s.f, [k]: v }, status: s.status === 'error' ? 'idle' : s.status })); }; });
+    keys.concat('interests').forEach(k => { err[k] = e[k] || ''; bc[k] = e[k] ? '#CD0608' : '#CFC7BB'; inv[k] = !!e[k]; });
+    const n = Object.keys(e).length;
+    const props = this.props || {};
+    return {
+      isWide: w >= 1024,
+      isNarrow: w < 1024,
+      showHeaderCta: w >= 560 && w < 1024,
+      menuOpen: menu,
+      showMenu: menu && w < 1024,
+      menuLabel: menu ? 'Close' : 'Menu',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      closeMenu: () => this.setState({ menu: false }),
+      aha: (props.certWording ?? 'AHA certification') === 'AHA certification',
+      showNotice: props.showPrototypeNotice ?? true,
+      f, h, bc, inv, err,
+      typeColor: f.type ? '#151311' : '#6B645C',
+      interestItems: this.topics.map(t => ({
+        label: t,
+        checked: !!interests[t],
+        bg: interests[t] ? '#FCF1F0' : '#fff',
+        border: interests[t] ? '#CD0608' : (e.interests ? '#CD0608' : '#CFC7BB'),
+        toggle: () => this.setState(s => {
+          const next = { ...s.interests, [t]: !s.interests[t] };
+          if (t === 'Not sure yet' && next[t]) this.topics.forEach(x => { if (x !== t) next[x] = false; });
+          if (t !== 'Not sure yet' && next[t]) next['Not sure yet'] = false;
+          return { interests: next };
+        })
+      })),
+      hasErrors: tried && n > 0,
+      errorCount: n === 1 ? 'field' : n + ' fields',
+      showForm: status !== 'success',
+      showSuccess: status === 'success',
+      showFail: status === 'error',
+      submitting: status === 'submitting',
+      submitLabel: status === 'submitting' ? 'Sending…' : (status === 'error' ? 'Try again' : 'Send inquiry'),
+      submitBg: status === 'submitting' ? '#8F7F78' : '#CD0608',
+      firstName: (f.name.trim().split(/\s+/)[0]) || 'there',
+      orgName: f.org.trim() || 'your group',
+      onSubmit: ev => {
+        ev.preventDefault();
+        if (this.state.status === 'submitting') return;
+        const errs = this.validate();
+        if (Object.keys(errs).length) {
+          this.setState({ tried: true });
+          const first = { name: 'f-name', email: 'f-email', org: 'f-org', type: 'f-type', count: 'f-count' }[Object.keys(errs)[0]];
+          const el = first && document.getElementById(first);
+          if (el) el.focus({ preventScroll: false });
+          return;
+        }
+        this.setState({ tried: true, status: 'submitting' });
+        this.t = setTimeout(() => {
+          const fail = (this.props?.submitOutcome ?? 'success') === 'failure';
+          this.setState({ status: fail ? 'error' : 'success' });
+          if (!fail) { const r = document.getElementById('request'); if (r) window.scrollTo({ top: r.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' }); }
+        }, 1400);
+      },
+      reset: () => this.setState({ f: { name: '', email: '', phone: '', org: '', type: '', count: '', timing: '', notes: '' }, interests: {}, tried: false, status: 'idle' })
+    };
+  }
+}
+</script>
+</body>
+</html>
