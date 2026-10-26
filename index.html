@@ -8,7 +8,7 @@
 <body>
 <x-dc>
 <helmet>
-<title>BEAT CPR Inc. — Free CPR & AED training for community groups</title>
+<title>BEAT CPR Inc. — Free CPR & AED training, brought to you</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -34,8 +34,8 @@ input,select,textarea,button{font:inherit;color:inherit}
     <sc-if value="{{ isWide }}" hint-placeholder-val="{{ true }}">
       <nav aria-label="Main" style="display:flex;align-items:center;gap:32px;font-family:Archivo,sans-serif;font-size:15.5px;font-weight:500">
         <a href="#training" style="color:#151311;text-decoration:none" style-hover="color:#CD0608">Training</a>
-        <a href="#certification" style="color:#151311;text-decoration:none" style-hover="color:#CD0608">Certification</a>
         <a href="#how" style="color:#151311;text-decoration:none" style-hover="color:#CD0608">How it works</a>
+        <a href="#certification" style="color:#151311;text-decoration:none" style-hover="color:#CD0608">Certification</a>
         <a href="#contact" style="color:#151311;text-decoration:none" style-hover="color:#CD0608">Contact</a>
         <a href="#request" style="display:inline-flex;align-items:center;height:46px;padding:0 20px;background:#CD0608;color:#fff;text-decoration:none;border-radius:3px;font-weight:600;white-space:nowrap" style-hover="background:#A30406;color:#fff">Request a Class</a>
       </nav>
@@ -53,8 +53,8 @@ input,select,textarea,button{font:inherit;color:inherit}
     <div id="mobile-menu" style="position:absolute;top:100%;left:0;right:0;background:#F8F5EF;border-bottom:1px solid #DDD6CB;box-shadow:0 24px 40px -24px rgba(21,19,17,.25)">
       <nav aria-label="Main" style="max-width:1280px;margin:0 auto;padding:8px clamp(20px,5vw,64px) 28px;display:flex;flex-direction:column;font-family:Archivo,sans-serif">
         <a href="#training" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid #DDD6CB;color:#151311;text-decoration:none;font-size:22px;font-weight:600;font-stretch:108%">Training</a>
-        <a href="#certification" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid #DDD6CB;color:#151311;text-decoration:none;font-size:22px;font-weight:600;font-stretch:108%">Certification</a>
         <a href="#how" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid #DDD6CB;color:#151311;text-decoration:none;font-size:22px;font-weight:600;font-stretch:108%">How it works</a>
+        <a href="#certification" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid #DDD6CB;color:#151311;text-decoration:none;font-size:22px;font-weight:600;font-stretch:108%">Certification</a>
         <a href="#contact" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid #DDD6CB;color:#151311;text-decoration:none;font-size:22px;font-weight:600;font-stretch:108%">Contact</a>
         <a href="#request" onClick="{{ closeMenu }}" style="margin-top:24px;display:flex;align-items:center;justify-content:center;height:54px;background:#CD0608;color:#fff;text-decoration:none;border-radius:3px;font-weight:600;font-size:17px">Request a Class</a>
         <a href="mailto:beatcprinc@gmail.com" style="margin-top:16px;text-align:center;color:#5A544D;font-size:15px">beatcprinc@gmail.com</a>
@@ -64,22 +64,23 @@ input,select,textarea,button{font:inherit;color:inherit}
 </header>
 
 <main id="top">
-  <section data-screen-label="Hero" style="padding-top:clamp(48px,8vw,112px)">
+  <section data-screen-label="Hero" style="padding:clamp(48px,8vw,112px) 0 clamp(56px,7vw,96px)">
     <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
       <p style="font-family:Archivo,sans-serif;font-size:clamp(13px,1.2vw,15px);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#CD0608">Free CPR &amp; AED training</p>
       <h1 style="margin-top:clamp(16px,2vw,24px);font-family:Archivo,sans-serif;font-weight:700;font-stretch:112%;font-size:clamp(38px,6.2vw,84px);line-height:1.02;letter-spacing:-.025em;max-width:14ch;text-wrap:balance">Life-saving skills, brought to your community<span style="color:#CD0608">.</span></h1>
       <div style="margin-top:clamp(32px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(36px,6vw,96px);align-items:flex-end;justify-content:space-between">
         <div style="flex:1 1 340px;max-width:560px">
-          <p style="font-size:clamp(19px,1.7vw,22px);line-height:1.5;color:#3A3530;text-wrap:pretty">BEAT CPR provides free CPR and AED training for community groups throughout New York City and the tri-state area. We come to you.</p>
+          <p style="font-size:clamp(19px,1.7vw,22px);line-height:1.5;color:#3A3530;text-wrap:pretty">BEAT CPR provides free CPR and AED training for schools, libraries, public organizations, private groups, and others throughout New York City and the tri-state area. We come to you.</p>
           <div style="margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;font-family:Archivo,sans-serif">
             <a href="#request" style="display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 28px;background:#CD0608;color:#fff;text-decoration:none;border-radius:3px;font-weight:600;font-size:17px;white-space:nowrap" style-hover="background:#A30406;color:#fff">Request a Class</a>
             <a href="#how" style="color:#151311;font-weight:500;font-size:16px;text-decoration:underline;text-decoration-color:#B8AFA2;text-underline-offset:5px" style-hover="color:#CD0608;text-decoration-color:#CD0608">How hosting works</a>
           </div>
         </div>
-        <dl style="flex:1 1 300px;max-width:440px;font-family:Archivo,sans-serif">
+        <div style="flex:1 1 300px;max-width:440px;font-family:Archivo,sans-serif">
+        <dl>
           <div style="display:flex;gap:16px;padding:14px 0;border-top:1px solid #151311">
             <dt style="flex:0 0 96px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B645C;padding-top:3px">Cost</dt>
-            <dd style="font-size:17px;font-weight:500">Free for community groups</dd>
+            <dd style="font-size:17px;font-weight:500">Free for your group</dd>
           </div>
           <div style="display:flex;gap:16px;padding:14px 0;border-top:1px solid #DDD6CB">
             <dt style="flex:0 0 96px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B645C;padding-top:3px">Where</dt>
@@ -94,6 +95,8 @@ input,select,textarea,button{font:inherit;color:inherit}
             <dd style="font-size:17px;font-weight:500">About 1–2 hours</dd>
           </div>
         </dl>
+          <p style="margin-top:14px;font-size:14.5px;line-height:1.45;color:#6B645C;text-wrap:pretty">Certification may be available for an additional administrative fee, if arranged. <a href="#certification" style="color:#151311">Details</a></p>
+        </div>
       </div>
     </div>
     <div aria-hidden="true" style="margin-top:clamp(56px,8vw,104px);display:flex;align-items:center">
@@ -103,11 +106,27 @@ input,select,textarea,button{font:inherit;color:inherit}
     </div>
   </section>
 
+  <section id="why" data-screen-label="Why CPR matters" style="background:#151311;color:#F8F5EF;padding:clamp(72px,10vw,144px) 0">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+      <div style="display:flex;flex-wrap:wrap;gap:40px clamp(40px,7vw,112px);align-items:flex-end">
+        <div style="flex:999 1 560px">
+          <h2 style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#F37365">Why CPR matters</h2>
+          <p style="margin-top:24px;font-weight:400;font-size:clamp(28px,4vw,54px);line-height:1.16;letter-spacing:-.01em;max-width:22ch;text-wrap:balance">An emergency can happen anywhere. Knowing what to do can make a difference before professional help arrives.</p>
+        </div>
+        <p style="flex:1 1 280px;max-width:420px;font-size:18px;line-height:1.6;color:#D6CFC4;text-wrap:pretty">Too many people never get trained in CPR and basic life support—not because they don't care, but because the opportunity never came to them. BEAT CPR changes that by bringing free, high-quality training directly to you. Because accessible training is the difference between life and death.</p>
+      </div>
+      <figure style="margin-top:clamp(48px,7vw,96px);padding-top:clamp(28px,3vw,40px);border-top:1px solid rgba(248,245,239,.2);display:flex;flex-wrap:wrap;gap:16px clamp(40px,7vw,112px);align-items:baseline">
+        <blockquote style="flex:999 1 560px;margin:0;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(26px,3.2vw,42px);line-height:1.12;letter-spacing:-.015em;max-width:26ch;text-wrap:balance">“Early CPR could <span style="color:#F37365">double or triple</span> a person’s chance of survival.”</blockquote>
+        <figcaption style="flex:1 1 280px;max-width:420px;font-family:Archivo,sans-serif;font-size:15px;font-weight:500;letter-spacing:.02em;color:#B5ADA2">— American Heart Association</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section id="training" data-screen-label="Training topics" style="padding:clamp(64px,9vw,128px) 0">
     <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(28px,6vw,96px)">
       <div style="flex:1 1 260px;max-width:420px">
         <h2 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-.018em;text-wrap:balance">What we teach</h2>
-        <p style="margin-top:20px;font-size:18px;line-height:1.55;color:#5A544D;text-wrap:pretty">Classes are hands-on and shaped around your group. Choose the topics that fit, or ask us to cover all five.</p>
+        <p style="margin-top:20px;font-size:18px;line-height:1.55;color:#5A544D;text-wrap:pretty">Classes are hands-on and shaped around your group, so participants leave prepared to step in and help. Choose the topics that fit, or ask us to cover all five.</p>
       </div>
       <ol style="flex:999 1 560px;list-style:none;border-bottom:1px solid #DDD6CB">
         <li style="display:flex;gap:clamp(14px,2vw,28px);padding:clamp(20px,2.4vw,28px) 0;border-top:1px solid #151311">
@@ -149,49 +168,11 @@ input,select,textarea,button{font:inherit;color:inherit}
     </div>
   </section>
 
-  <section id="certification" data-screen-label="Free training & certification" style="background:#EFE9DF;padding:clamp(64px,9vw,128px) 0">
-    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
-      <div style="display:flex;flex-wrap:wrap;gap:20px clamp(28px,6vw,96px);align-items:flex-end;justify-content:space-between">
-        <h2 style="flex:1 1 320px;max-width:16ch;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-.018em;text-wrap:balance">Free to host. Certification if you need it.</h2>
-        <p style="flex:1 1 320px;max-width:520px;font-size:18px;line-height:1.55;color:#5A544D;text-wrap:pretty">Standard training costs your group nothing. If participants need a certification card, that can be arranged separately for an additional administrative fee.</p>
-      </div>
-      <div style="margin-top:clamp(36px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(16px,2vw,24px);align-items:stretch">
-        <div style="flex:1 1 300px;background:#FFFDF9;border:1px solid #DDD6CB;border-radius:4px;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column">
-          <h3 style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#151311">Standard training</h3>
-          <p style="margin-top:12px;font-family:Archivo,sans-serif;font-weight:800;font-stretch:115%;font-size:clamp(68px,8vw,112px);line-height:.9;letter-spacing:-.03em;color:#CD0608">Free</p>
-          <ul style="margin-top:clamp(24px,3vw,36px);list-style:none;font-family:Archivo,sans-serif;font-size:18px;font-weight:500">
-            <li style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-top:1px solid #DDD6CB"><span aria-hidden="true" style="flex:none;width:14px;height:2px;background:#CD0608;transform:translateY(-5px)"></span>Free for community groups</li>
-            <li style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-top:1px solid #DDD6CB"><span aria-hidden="true" style="flex:none;width:14px;height:2px;background:#CD0608;transform:translateY(-5px)"></span>No obligation</li>
-            <li style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-top:1px solid #DDD6CB;border-bottom:1px solid #DDD6CB"><span aria-hidden="true" style="flex:none;width:14px;height:2px;background:#CD0608;transform:translateY(-5px)"></span>Training at your group’s location</li>
-          </ul>
-          <p style="margin-top:auto;padding-top:24px;font-size:16px;line-height:1.5;color:#5A544D">Covers any of the five topics: adult, child, and infant CPR, AED use, and choking response.</p>
-        </div>
-        <div style="flex:1.35 1 360px;background:#151311;color:#F8F5EF;border-radius:4px;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column">
-          <h3 style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#F37365">Optional certification</h3>
-          <p style="margin-top:14px;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.4vw,44px);line-height:1.05;letter-spacing:-.015em;text-wrap:balance"><sc-if value="{{ aha }}" hint-placeholder-val="{{ true }}">AHA </sc-if>certification available</p>
-          <p style="margin-top:16px;font-size:18px;line-height:1.55;color:#D6CFC4;max-width:52ch;text-wrap:pretty">For participants who need a certification card, BEAT CPR offers <sc-if value="{{ aha }}" hint-placeholder-val="{{ true }}">American Heart Association </sc-if>Heartsaver and BLS certification.</p>
-          <dl style="margin-top:clamp(24px,3vw,32px)">
-            <div style="display:flex;flex-wrap:wrap;gap:4px 24px;padding:16px 0;border-top:1px solid rgba(248,245,239,.2)">
-              <dt style="flex:0 0 140px;font-family:Archivo,sans-serif;font-weight:600;font-size:19px">Heartsaver</dt>
-              <dd style="flex:1 1 240px;font-size:16px;line-height:1.5;color:#D6CFC4">Certification for people outside of healthcare, such as staff, teachers, and community members.</dd>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px 24px;padding:16px 0;border-top:1px solid rgba(248,245,239,.2);border-bottom:1px solid rgba(248,245,239,.2)">
-              <dt style="flex:0 0 140px;font-family:Archivo,sans-serif;font-weight:600;font-size:19px">BLS</dt>
-              <dd style="flex:1 1 240px;font-size:16px;line-height:1.5;color:#D6CFC4">Basic Life Support certification, often needed for healthcare and clinical roles.</dd>
-            </div>
-          </dl>
-          <p style="margin-top:24px;font-family:Archivo,sans-serif;font-size:18px;font-weight:600">An additional administrative fee applies.</p>
-          <p style="margin-top:8px;font-size:16px;line-height:1.5;color:#D6CFC4;text-wrap:pretty">Certification is optional, arranged in advance, and not part of every class. Mention it in your inquiry and we’ll explain the details.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="how" data-screen-label="How it works" style="padding:clamp(64px,9vw,128px) 0">
+  <section id="how" data-screen-label="How it works" style="border-top:1px solid #DDD6CB;padding:clamp(64px,9vw,128px) 0">
     <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
       <div style="display:flex;flex-wrap:wrap;gap:20px clamp(28px,6vw,96px);align-items:flex-end;justify-content:space-between">
         <h2 style="flex:1 1 320px;max-width:14ch;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-.018em;text-wrap:balance">How hosting a class works</h2>
-        <p style="flex:1 1 320px;max-width:520px;font-size:18px;line-height:1.55;color:#5A544D;text-wrap:pretty">There’s no booking system and nothing to commit to up front. You tell us about your group, and we work out the details together.</p>
+        <p style="flex:1 1 320px;max-width:520px;font-size:18px;line-height:1.55;color:#5A544D;text-wrap:pretty">Contacting us doesn’t commit you to a class. It starts a conversation about your group and how we can work together.</p>
       </div>
       <ol style="margin-top:clamp(40px,5vw,64px);list-style:none;display:flex;flex-wrap:wrap;gap:0 clamp(24px,3vw,48px)">
         <li style="flex:1 1 240px;border-top:2px solid #151311;padding:24px 0 36px">
@@ -217,13 +198,39 @@ input,select,textarea,button{font:inherit;color:inherit}
     </div>
   </section>
 
-  <section data-screen-label="Why CPR matters" style="background:#151311;color:#F8F5EF;padding:clamp(80px,11vw,160px) 0">
-    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:40px clamp(40px,7vw,112px);align-items:flex-end">
-      <div style="flex:999 1 560px">
-        <h2 style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#F37365">Why CPR matters</h2>
-        <p style="margin-top:24px;font-weight:400;font-size:clamp(28px,4vw,54px);line-height:1.16;letter-spacing:-.01em;max-width:22ch;text-wrap:balance">An emergency can happen anywhere. Knowing what to do can make a difference before professional help arrives.</p>
+  <section id="certification" data-screen-label="Free training & certification" style="background:#EFE9DF;padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+      <div style="display:flex;flex-wrap:wrap;gap:20px clamp(28px,6vw,96px);align-items:flex-end;justify-content:space-between">
+        <h2 style="flex:1 1 320px;max-width:16ch;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-.018em;text-wrap:balance">Free to host. Certification if you need it.</h2>
+        <p style="flex:1 1 320px;max-width:520px;font-size:18px;line-height:1.55;color:#5A544D;text-wrap:pretty">Every class is free for the group hosting it. Certification is a separate, optional step for participants who need a card.</p>
       </div>
-      <p style="flex:1 1 260px;max-width:400px;font-size:18px;line-height:1.6;color:#CFC8BD;text-wrap:pretty">Our classes are for everyday people: parents, teachers, coworkers, congregants, and neighbors. The aim is simple. More people in more communities who feel ready to step in and help.</p>
+      <div style="margin-top:clamp(36px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(16px,2vw,24px);align-items:stretch">
+        <div style="flex:1 1 260px;background:#FFFDF9;border:1px solid #DDD6CB;border-radius:4px;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column">
+          <h3 style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#151311">Standard training</h3>
+          <p style="margin-top:12px;font-family:Archivo,sans-serif;font-weight:800;font-stretch:115%;font-size:clamp(64px,7vw,104px);line-height:.9;letter-spacing:-.03em;color:#CD0608">Free</p>
+          <p style="margin-top:clamp(20px,3vw,32px);font-size:18px;line-height:1.55;color:#3A3530;text-wrap:pretty">Hands-on instruction in the topics your group chooses.</p>
+          <p style="margin-top:auto;padding-top:24px;border-top:1px solid #DDD6CB;font-family:Archivo,sans-serif;font-size:15.5px;line-height:1.5;color:#5A544D;text-wrap:pretty">Certification cards aren’t included unless arranged in advance.</p>
+        </div>
+        <div style="flex:2 1 440px;background:#151311;color:#F8F5EF;border-radius:4px;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column">
+          <h3 style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#F37365">Optional certification</h3>
+          <p style="margin-top:14px;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(34px,4vw,54px);line-height:1.02;letter-spacing:-.02em;text-wrap:balance"><sc-if value="{{ aha }}" hint-placeholder-val="{{ true }}">AHA </sc-if>certification available</p>
+          <p style="margin-top:16px;font-size:18px;line-height:1.55;color:#D6CFC4;max-width:52ch;text-wrap:pretty">For participants who need a certification card, BEAT CPR offers <sc-if value="{{ aha }}" hint-placeholder-val="{{ true }}">American Heart Association </sc-if>Heartsaver and BLS certification.</p>
+          <dl style="margin-top:clamp(28px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px clamp(24px,3vw,40px)">
+            <div style="border-top:2px solid #CD0608;padding-top:16px">
+              <dt style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:108%;font-size:clamp(26px,2.6vw,34px);line-height:1.1">Heartsaver</dt>
+              <dd style="margin-top:8px;font-size:16.5px;line-height:1.5;color:#D6CFC4;text-wrap:pretty">Certification for people outside of healthcare, such as staff, teachers, and community members.</dd>
+            </div>
+            <div style="border-top:2px solid #CD0608;padding-top:16px">
+              <dt style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:108%;font-size:clamp(26px,2.6vw,34px);line-height:1.1">BLS</dt>
+              <dd style="margin-top:8px;font-size:16.5px;line-height:1.5;color:#D6CFC4;text-wrap:pretty">Basic Life Support certification, often needed for healthcare and clinical roles.</dd>
+            </div>
+          </dl>
+          <div style="margin-top:clamp(28px,3vw,40px);padding:18px 20px;background:#2A2623;border-radius:3px;display:flex;flex-wrap:wrap;gap:6px 24px;align-items:baseline">
+            <p style="font-family:Archivo,sans-serif;font-size:19px;font-weight:600">An additional administrative fee applies.</p>
+            <p style="flex:1 1 240px;font-size:16px;line-height:1.5;color:#D6CFC4;text-wrap:pretty">Optional and arranged in advance. Mention it in your inquiry and we’ll explain the details.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -231,7 +238,7 @@ input,select,textarea,button{font:inherit;color:inherit}
     <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(36px,6vw,96px);align-items:flex-start">
       <div style="flex:1 1 280px;max-width:400px">
         <h2 style="font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-.018em">Request a class</h2>
-        <p style="margin-top:20px;font-size:18px;line-height:1.55;color:#3A3530;text-wrap:pretty">Tell us a little about your group. This is an inquiry, not a booking: BEAT CPR will follow up to discuss your group’s needs and arrangements.</p>
+        <p style="margin-top:20px;font-size:18px;line-height:1.55;color:#3A3530;text-wrap:pretty">Tell us a little about your group. Reaching out doesn’t commit you to a class. It starts a conversation about your group and how we can work together.</p>
         <p style="margin-top:20px;font-size:16px;line-height:1.55;color:#5A544D">Fields marked <span style="color:#CD0608">*</span> are required. Everything else is optional.</p>
         <div style="margin-top:32px;padding-top:20px;border-top:1px solid #DDD6CB">
           <p style="font-family:Archivo,sans-serif;font-size:15px;font-weight:600">Prefer to write directly?</p>
@@ -346,7 +353,7 @@ input,select,textarea,button{font:inherit;color:inherit}
 
             <div style="margin-top:32px;padding-top:28px;border-top:1px solid #E6E0D6;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px">
               <button type="submit" disabled="{{ submitting }}" style="height:56px;padding:0 32px;background:{{ submitBg }};color:#fff;border:0;border-radius:3px;font-weight:600;font-size:17px;cursor:pointer;white-space:nowrap" style-hover="background:#A30406">{{ submitLabel }}</button>
-              <p style="flex:1 1 220px;font-family:'Source Serif 4',serif;font-size:15px;line-height:1.5;color:#5A544D;text-wrap:pretty">Sending this form doesn’t reserve a date. We’ll follow up to talk it through.</p>
+              <p style="flex:1 1 220px;font-family:'Source Serif 4',serif;font-size:15px;line-height:1.5;color:#5A544D;text-wrap:pretty">Sending this doesn’t commit you to anything. BEAT CPR will follow up to talk it through.</p>
             </div>
             <sc-if value="{{ showNotice }}" hint-placeholder-val="{{ true }}">
               <p style="margin-top:20px;padding:12px 14px;background:#F3EEE6;border-radius:4px;font-size:13.5px;line-height:1.45;color:#5A544D">Prototype: email delivery isn’t configured yet. Submissions are not sent anywhere.</p>
@@ -375,18 +382,18 @@ input,select,textarea,button{font:inherit;color:inherit}
       <div style="display:flex;flex-wrap:wrap;gap:32px clamp(40px,6vw,88px)">
         <nav aria-label="Footer" style="display:flex;flex-direction:column;gap:12px;font-size:15.5px">
           <a href="#training" style="color:#F8F5EF;text-decoration:none" style-hover="color:#F37365">Training</a>
-          <a href="#certification" style="color:#F8F5EF;text-decoration:none" style-hover="color:#F37365">Certification</a>
           <a href="#how" style="color:#F8F5EF;text-decoration:none" style-hover="color:#F37365">How it works</a>
+          <a href="#certification" style="color:#F8F5EF;text-decoration:none" style-hover="color:#F37365">Certification</a>
           <a href="#request" style="color:#F8F5EF;text-decoration:none" style-hover="color:#F37365">Request a Class</a>
         </nav>
         <div style="display:flex;flex-direction:column;gap:12px;font-size:15.5px;max-width:260px">
           <a href="mailto:beatcprinc@gmail.com" style="color:#F8F5EF" style-hover="color:#F37365">beatcprinc@gmail.com</a>
-          <p style="line-height:1.5">Free CPR and AED training for community groups in New York City and the tri-state area.</p>
+          <p style="line-height:1.5">Free CPR and AED training for groups and organizations in New York City and the tri-state area.</p>
         </div>
       </div>
     </div>
     <div style="margin-top:clamp(40px,5vw,56px);padding-top:20px;border-top:1px solid rgba(248,245,239,.16);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:13.5px;color:#9C958B">
-      <p>© 2026 BEAT CPR Inc.</p>
+      <p>© {{ year }} BEAT CPR Inc.</p>
       <p>Basic Emergency Aid Training</p>
     </div>
   </div>
@@ -432,6 +439,7 @@ class Component extends DCLogic {
     const n = Object.keys(e).length;
     const props = this.props || {};
     return {
+      year: new Date().getFullYear(),
       isWide: w >= 1024,
       isNarrow: w < 1024,
       showHeaderCta: w >= 560 && w < 1024,
