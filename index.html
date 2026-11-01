@@ -268,16 +268,17 @@ b{ font-weight: 900;}
               <svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13.5 L11 19 L21 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </div>
             <h3 style="margin-top:24px;font-family:Archivo,sans-serif;font-weight:700;font-stretch:110%;font-size:clamp(26px,3vw,36px);line-height:1.1">Thank you, {{ firstName }}.</h3>
-            <p style="margin-top:14px;font-size:18px;line-height:1.55;color:#3A3530;max-width:52ch;text-wrap:pretty">Your inquiry for {{ orgName }} has been recorded in this prototype. On the live site, BEAT CPR would follow up from here to discuss your group’s needs and arrangements.</p>
-            <div style="margin-top:28px;padding:18px 20px;background:#F3EEE6;border-radius:4px;font-family:Archivo,sans-serif;font-size:15px;line-height:1.5;color:#3A3530">
-              <strong style="font-weight:600">Prototype note:</strong> email delivery has not been set up yet, so this inquiry was not sent anywhere. Nothing has been submitted to BEAT CPR.
-            </div>
+            <p style="margin-top:14px;font-size:18px;line-height:1.55;color:#3A3530;max-width:52ch;text-wrap:pretty">Your inquiry for {{ orgName }} has been sent. BEAT CPR will follow up to discuss your group’s needs and arrangements.</p>
             <button type="button" onClick="{{ reset }}" style="margin-top:28px;height:50px;padding:0 22px;border:1px solid #151311;background:transparent;border-radius:3px;font-family:Archivo,sans-serif;font-weight:600;font-size:16px;cursor:pointer" style-hover="background:#151311;color:#F8F5EF">Start another inquiry</button>
           </div>
         </sc-if>
 
         <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
           <form onSubmit="{{ onSubmit }}" noValidate="{{ true }}" style="font-family:Archivo,sans-serif">
+            <div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">
+              <label for="f-botcheck">Company website</label>
+              <input id="f-botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+            </div>
             <sc-if value="{{ hasErrors }}" hint-placeholder-val="{{ false }}">
               <div role="alert" style="margin-bottom:28px;padding:14px 18px;border:1px solid #CD0608;border-radius:4px;background:#FCEDEC;color:#8E0405;font-size:15.5px;line-height:1.45">Please check the {{ errorCount }} highlighted below.</div>
             </sc-if>
@@ -370,9 +371,6 @@ b{ font-weight: 900;}
               <button type="submit" disabled="{{ submitting }}" style="height:56px;padding:0 32px;background:{{ submitBg }};color:#fff;border:0;border-radius:3px;font-weight:600;font-size:17px;cursor:pointer;white-space:nowrap" style-hover="background:#A30406">{{ submitLabel }}</button>
               <p style="flex:1 1 220px;font-family:'Source Serif 4',serif;font-size:15px;line-height:1.5;color:#5A544D;text-wrap:pretty">Sending this doesn’t commit you to anything. BEAT CPR will follow up to talk it through.</p>
             </div>
-            <sc-if value="{{ showNotice }}" hint-placeholder-val="{{ true }}">
-              <p style="margin-top:20px;padding:12px 14px;background:#F3EEE6;border-radius:4px;font-size:13.5px;line-height:1.45;color:#5A544D">Prototype: email delivery isn’t configured yet. Submissions are not sent anywhere.</p>
-            </sc-if>
           </form>
         </sc-if>
       </div>
@@ -414,7 +412,7 @@ b{ font-weight: 900;}
   </div>
 </footer>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;certWording&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AHA certification&quot;,&quot;Certification (no AHA mention)&quot;],&quot;default&quot;:&quot;AHA certification&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;submitOutcome&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;success&quot;,&quot;failure&quot;],&quot;default&quot;:&quot;success&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Form prototype&quot;},&quot;showPrototypeNotice&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Form prototype&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;certWording&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AHA certification&quot;,&quot;Certification (no AHA mention)&quot;],&quot;default&quot;:&quot;AHA certification&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
 class Component extends DCLogic {
   state = {
     w: typeof window !== 'undefined' ? window.innerWidth : 1280,
@@ -425,6 +423,7 @@ class Component extends DCLogic {
     status: 'idle'
   };
   topics = ['Adult CPR', 'Child CPR', 'Infant CPR', 'AED use', 'Choking response', 'Certification (Heartsaver or BLS)', 'Not sure yet'];
+  accessKey = '943f51f2-a5c9-4470-ac41-aadfdc6b060a';
   componentDidMount() {
     this.onResize = () => this.setState({ w: window.innerWidth, menu: window.innerWidth >= 1024 ? false : this.state.menu });
     window.addEventListener('resize', this.onResize);
@@ -464,7 +463,6 @@ class Component extends DCLogic {
       toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
       closeMenu: () => this.setState({ menu: false }),
       aha: (props.certWording ?? 'AHA certification') === 'AHA certification',
-      showNotice: props.showPrototypeNotice ?? true,
       f, h, bc, inv, err,
       typeColor: f.type ? '#151311' : '#6B645C',
       interestItems: this.topics.map(t => ({
@@ -500,12 +498,43 @@ class Component extends DCLogic {
           if (el) el.focus({ preventScroll: false });
           return;
         }
+        const trap = document.getElementById('f-botcheck');
+        if (trap && trap.checked) {
+          this.setState({ tried: true, status: 'success' });
+          return;
+        }
         this.setState({ tried: true, status: 'submitting' });
-        this.t = setTimeout(() => {
-          const fail = (this.props?.submitOutcome ?? 'success') === 'failure';
-          this.setState({ status: fail ? 'error' : 'success' });
-          if (!fail) { const r = document.getElementById('request'); if (r) window.scrollTo({ top: r.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' }); }
-        }, 1400);
+        const f = this.state.f;
+        const chosen = Object.keys(this.state.interests).filter(k => this.state.interests[k]);
+        const payload = {
+          access_key: this.accessKey,
+          subject: 'Class inquiry from ' + f.org.trim(),
+          from_name: f.name.trim(),
+          replyto: f.email.trim(),
+          name: f.name.trim(),
+          email: f.email.trim(),
+          organization: f.org.trim(),
+          organization_type: f.type,
+          participants: f.count.trim(),
+          interests: chosen.join(', '),
+          botcheck: ''
+        };
+        if (f.phone.trim()) payload.phone = f.phone.trim();
+        if (f.timing.trim()) payload.preferred_timing = f.timing.trim();
+        if (f.notes.trim()) payload.notes = f.notes.trim();
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(r => r.json().catch(() => ({}))).then(result => {
+          if (!result || result.success !== true) {
+            this.setState({ status: 'error' });
+            return;
+          }
+          this.setState({ status: 'success' });
+          const section = document.getElementById('request');
+          if (section) window.scrollTo({ top: section.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+        }).catch(() => this.setState({ status: 'error' }));
       },
       reset: () => this.setState({ f: { name: '', email: '', phone: '', org: '', type: '', count: '', timing: '', notes: '' }, interests: {}, tried: false, status: 'idle' })
     };
